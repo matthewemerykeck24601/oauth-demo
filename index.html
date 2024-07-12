@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive OAuth 2.0</title>
+</head>
+<body>
+    <h1>Google Drive OAuth 2.0 Authentication</h1>
+    <button id="authorize-button">Authorize with Google</button>
+    <script>
+        const clientId = 'YOUR_CLIENT_ID';
+        const redirectUri = 'https://yourdomain
+const redirectUri = 'https://yourusername.github.io/your-repo-name/callback.html';
+        const scope = 'https://www.googleapis.com/auth/drive';
+        const authUrl = `https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+
+        document.getElementById('authorize-button').onclick = () => {
+            window.location = authUrl;
+        };
+    </script>
+</body>
+</html>
