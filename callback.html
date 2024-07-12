@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive OAuth 2.0 Callback</title>
+</head>
+<body>
+    <h1>Google Drive OAuth 2.0 Callback</h1>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const authorizationCode = urlParams.get('code');
+
+        if (authorizationCode) {
+            fetch('https://your-backend-service.com/exchange', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ code: authorizationCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Access Token:', data.access_token);
+                // Store the access token and use it for subsequent API requests
+                localStorage.setItem('access_token', data.access_token);
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+            document.body.innerHTML = '<p>No authorization code found.</p>';
+        }
+    </script>
+</body>
+</html>
