@@ -9,15 +9,22 @@
     <h1>Google Drive OAuth 2.0 Authentication</h1>
     <button id="authorize-button">Authorize with Google</button>
     <script>
-        const clientId = 'YOUR_CLIENT_ID';
-        const redirectUri = 'https://yourdomain
-const redirectUri = 'https://yourusername.github.io/your-repo-name/callback.html';
-        const scope = 'https://www.googleapis.com/auth/drive';
-        const authUrl = `https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+        // Wait until the DOM content is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your Google OAuth 2.0 Client ID
+            const clientId = '30022172089-r7lo7i3gpr8hv2q2t852cjs95clpaaau.apps.googleusercontent.com';
+            // The redirect URI should be the URL of your callback page
+            const redirectUri = 'https://matthewemerykeck24601.github.io/oauth-demo/callback.html'; // or 'https://metroknowledgebase.com/callback.html'
+            // Scopes required for your application
+            const scope = 'https://www.googleapis.com/auth/drive';
+            // Construct the OAuth 2.0 authorization URL
+            const authUrl = `https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
 
-        document.getElementById('authorize-button').onclick = () => {
-            window.location = authUrl;
-        };
+            // Set the onclick event for the button to redirect to the auth URL
+            document.getElementById('authorize-button').onclick = () => {
+                window.location = authUrl;
+            };
+        });
     </script>
 </body>
 </html>
